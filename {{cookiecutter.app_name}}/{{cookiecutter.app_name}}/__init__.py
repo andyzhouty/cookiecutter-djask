@@ -1,4 +1,4 @@
-{%- set name= cookicutter.app_name -%}
+{%- set name= cookiecutter.app_name -%}
 import os
 from importlib import import_module
 from pathlib import Path
