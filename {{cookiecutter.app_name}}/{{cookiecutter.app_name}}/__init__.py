@@ -16,6 +16,7 @@ def create_app(config_name=None):
 
 def register_blueprints(app: Djask):
     # you can change these lines of codes to manually import your blueprints
+    os.chdir("{{ name }}")
     for child in Path('.').iterdir():
         if child.is_dir() and (child / "__init__.py").is_file():
             module = import_module(f".{child}.views", "{{ name }}")
