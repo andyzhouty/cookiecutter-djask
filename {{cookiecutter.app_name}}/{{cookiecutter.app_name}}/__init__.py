@@ -20,4 +20,6 @@ def register_blueprints(app: Djask):
     for child in Path('.').iterdir():
         if child.is_dir() and (child / "__init__.py").is_file():
             module = import_module(f".{child}.views", "{{ name }}")
-            exec(f"app.register_blueprint(module.{child}_bp)")
+            app.register_blueprint(
+                getattr(module, f"{child}_bp")
+            )
